@@ -6,7 +6,7 @@ use ieee.std_logic_arith.all;
 entity decod8x256 is 
 	port(
 		endereco	: in std_logic_vector(7 downto 0);
-		saida		: out integer
+		saida		: out integer range 0 to 255;
 	);
 end entity;
 architecture behavior of decod8x256 is 
