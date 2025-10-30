@@ -8,20 +8,20 @@ entity memoria is
 		endereco	: in std_logic_vector (7 downto 0);
 		saida		: out std_logic_vector (7 downto 0);
 		op_code		: in std_logic_vector (3 downto 0);
-		
+		valor 		: in std_logic_vector (15 downto 0);
 	);
 end entity;
 architecture behavior of memoria is 
 
-component decod8x256 is
-	port(
-		endereco	: in std_logic_vector(7 downto 0);
-		saida		: out integer range 0 to 255;
-	);
-end component;
+--component decod8x256 is
+--	port(
+--		endereco	: in std_logic_vector(7 downto 0);
+--		saida		: out integer range 0 to 255;
+--	);
+--end component;
 
-type mem is array (integer range 0 to 255) of std_logic_vector(7 downto 0);
-signal mem_o 	: mem;
+type mem is array (integer range 0 to 255) of std_logic_vector(15 downto 0);
+signal mem_ram 	: mem;
 signal endInt	: integer range 0 to 255;
 
 begin
@@ -31,10 +31,24 @@ port map(
 	endereco => endereco;
 	saida => endInt
 );
+-- convertendo o endereço de entrada em binário para endereçar a memória
+endInt <= conv_integer(endereco);
+
+
+
+process(clock)
+begin
+-- ideia de acesso a memoria leitura
+-- if op_code xxx then
+saida <= mem_ram(endInt);
+-- ideia de acesso a memoria escrita
+-- if op_code yyy then
 
 
 
 
 
 
+
+end process;
 end behavior;
