@@ -7,7 +7,7 @@ entity memoria is
 	port(
 		endereco	: in std_logic_vector (7 downto 0);
 		saida		: out std_logic_vector (7 downto 0);
-		op_code		: in std_logic_vector (3 downto 0);
+		opcode		: in std_logic_vector (3 downto 0);
 		valor 		: in std_logic_vector (15 downto 0);
 	);
 end entity;
@@ -34,13 +34,14 @@ port map(
 -- convertendo o endereço de entrada em binário para endereçar a memória
 endInt <= conv_integer(endereco);
 
-
+saida <= mem_ran(endInt);
 
 process(clock)
 begin
 -- ideia de acesso a memoria leitura
--- if op_code xxx then
-saida <= mem_ram(endInt);
+if opcode = "0111" then
+	saida <= mem_ram(endInt);
+end if;
 -- ideia de acesso a memoria escrita
 -- if op_code yyy then
 
