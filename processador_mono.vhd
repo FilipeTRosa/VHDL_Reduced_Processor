@@ -28,11 +28,12 @@ signal memInst		: mem
 
 --sinais de controle
 signal pc 			: integer range 0 to 255;
+signal enableReg	: std_logic;
 
 	begin
 	--valor
 	valor <= reg0 + regDest + imm;
-
+	
 
 
 
