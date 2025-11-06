@@ -5,7 +5,7 @@ use ieee.std_logic_arith.all;
 
 entity memoria is 
 	port(
-		endereco	: in std_logic_vector (7 downto 0);
+		endereco	: in std_logic_vector (15 downto 0);
 		saida		: out std_logic_vector (7 downto 0);
 		opcode		: in std_logic_vector (3 downto 0);
 		valor 		: in std_logic_vector (15 downto 0);
@@ -40,7 +40,7 @@ process(clock)
 begin
 -- ideia de acesso a memoria leitura
 if opcode = "0111" then
-	saida <= mem_ram(endInt);
+	 mem_ram(endInt) <= valor;
 end if;
 -- ideia de acesso a memoria escrita
 -- if op_code yyy then
