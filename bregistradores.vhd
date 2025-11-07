@@ -8,6 +8,7 @@ entity bregistradores is
 		registrador 	:	in std_logic_vector (3 downto 0);
 		dado			:	in std_logic_vector (15 downto 0);
 		enable			:	in std_logic;
+		clock			:	in std_logic;
 		saida			:	out std_logic_vector (15 downto 0);
 	
 );
@@ -15,11 +16,21 @@ end entity;
 
 architecture behavior of bregistradores is
 
+type br is array (integer range 0 to 15) of std_logic_vector(15 downto 0);
+signal br_o 	: br;
+signal endBr 	: std_logic;
+
 begin
 
-type bd is array (integer range 0 to 15) of std_logic_vector(15 downto 0);
-signal bd_o : bd;
+	endBr <= convert_integer(registador);
+	
+	saida <= br_o(endBr)
 
+process(clock)
 
+if enable = "1" then
+	 br_o(endBr) <= dado;
+end if;
 
+end process;
 end behavior;

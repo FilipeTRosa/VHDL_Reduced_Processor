@@ -9,6 +9,7 @@ entity memoria is
 		saida		: out std_logic_vector (7 downto 0);
 		opcode		: in std_logic_vector (3 downto 0);
 		valor 		: in std_logic_vector (15 downto 0);
+		clock		: in std_logic;
 	);
 end entity;
 architecture behavior of memoria is 
@@ -26,30 +27,26 @@ signal endInt	: integer range 0 to 255;
 
 begin
 
-inst_dec : decod8x256
-port map(
-	endereco => endereco;
-	saida => endInt
-);
+--inst_dec : decod8x256
+--port map(
+--	endereco => endereco;
+--	saida => endInt
+--);
 -- convertendo o endereço de entrada em binário para endereçar a memória
 endInt <= conv_integer(endereco);
 
-saida <= mem_ran(endInt);
-
+saida <= mem_ran(endInt) when (enable = '0')
+	else
+		(others => '0');
+		
 process(clock)
 begin
--- ideia de acesso a memoria leitura
+-- ideia de acesso a memoria escrita
 if opcode = "0111" then
 	 mem_ram(endInt) <= valor;
 end if;
 -- ideia de acesso a memoria escrita
 -- if op_code yyy then
-
-
-
-
-
-
 
 end process;
 end behavior;
