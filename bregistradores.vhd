@@ -24,7 +24,9 @@ begin
 
 	endBr <= convert_integer(registador);
 	
-	saida <= br_o(endBr)
+	saida <= br_o(endBr) when (enable = '0')
+		else 
+			(others => '0');
 
 process(clock)
 
