@@ -30,6 +30,15 @@ signal endMemRam	: integer range 0 to 255; -- para guardar o end do SW e LW
 signal pc 			: integer range 0 to 255;
 signal enableReg	: std_logic;
 
+--sinais ULA
+
+signal swift  : std_logic_vector (15 downto 0);
+signal addr   : std_logic_vector (15 downto 0);
+signal subt   : std_logic_vector (15 downto 0);
+signal multi  : std_logic_vector (15 downto 0);
+signal ulaOut : std_logic_vector (15 downto 0);
+
+
 begin
 	--separando a operação TENTANDO COM 20 bits	
 	opcode <= inst(19 downto 16);
@@ -59,11 +68,17 @@ begin
 	--valor
 	valor <= reg0 + regDest + imm;
 	
-
+	
 
 
 process(clock, reset)
 	begin
+		if reset = '1' then
+		
+		elsif clock = '1' and clock'event then --reset 0
+			
+			
+		end if;
 
 end process;
-	end behavior;
+end behavior;
