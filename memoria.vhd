@@ -24,6 +24,7 @@ architecture behavior of memoria is
 type mem is array (integer range 0 to 255) of std_logic_vector(15 downto 0);
 signal mem_ram 	: mem;
 signal endInt	: integer range 0 to 255;
+signal enable 	: std_logic;
 
 begin
 
@@ -34,6 +35,9 @@ begin
 --);
 -- convertendo o endereço de entrada em binário para endereçar a memória
 endInt <= conv_integer(endereco);
+enable <= '1' when (opcode = "0111")
+	else 
+		(others => '0');
 
 saida <= mem_ran(endInt) when (enable = '0')
 	else
