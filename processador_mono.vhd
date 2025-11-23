@@ -24,7 +24,7 @@ signal valor		: std_logic_vector (15 downto 0);
 
 --memoria de instruções
 type mem is array (integer range 0 to 255) of std_logic_vector(19 downto 0);
-signal memInst		: mem
+signal memInst		: mem;
 signal endMemRam	: integer range 0 to 255; -- para guardar o end do SW e LW
 --sinais de controle
 signal pc 			: integer range 0 to 255;
