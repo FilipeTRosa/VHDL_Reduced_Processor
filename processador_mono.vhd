@@ -26,11 +26,41 @@ signal valor		: std_logic_vector (15 downto 0);
 type mem is array (integer range 0 to 255) of std_logic_vector(19 downto 0);
 signal memInst		: mem;
 signal endMemRam	: integer range 0 to 255; -- para guardar o end do SW e LW
+
 --sinais de controle
 signal pc 			: integer range 0 to 255;
 signal enableReg	: std_logic;
 
+--sinais ULA
+signal ulaOut 		: std_logic_vector (15 downto 0);
+signal ulaIn0 		: std_logic_vector (7 downto 0);
+signal ulaIn1 		: std_logic_vector (7 downto 0);
+signal ulaOp  		: std_logic_vector(1 downto 0);
+signal ulaComp  	: std_logic_vector(1 downto 0);
+
+component ula is
+        port(
+            ulaOp   : in std_logic_vector(1 downto 0);
+            ulaIn_0 : in std_logic_vector(7 downto 0);
+            ulaIn_1 : in std_logic_vector(7 downto 0);
+            ulaOut  : out std_logic_vector(15 downto 0);
+            ulaComp : out std_logic
+        );  
+end component;
+
 begin
+	
+	-- PORTMAP ULA
+	port map(
+        -- Porta da ULA => processador
+        ulaOp   => ulaOp,  
+        ulaIn_0 => ulaIn0,   
+        ulaIn_1 => ulaIn1,   
+        ulaOut  => ulaOut, 
+        ulaComp => ulaComp         
+    );
+
+
 	--separando a operação TENTANDO COM 20 bits	
 	opcode <= inst(19 downto 16);
 	--tentando com when
@@ -49,7 +79,7 @@ begin
 		else
 			(others => '0');
 	-- 									JMP			//  		-- BEQ : BNE			//				 -- LDI : ADDI : SUBI : MULTI
-	imm <= inst(7 downto 0) when (opcode = "0011" or opcode = "0100" or opcode = "0101" or opcode = "1000" or opcode = "1001" or opcode = "1010" or opcode = "1011")
+	imm <= inst(7 downto 0) when (opcode = "0011" or opcode = "0100" or opcode = "0101" or opcode = "1011" or opcode = "1000" or opcode = "1001" or opcode = "1010")
 		else
 			(others => '0');
 	--
@@ -59,11 +89,17 @@ begin
 	--valor
 	valor <= reg0 + regDest + imm;
 	
-
+	
 
 
 process(clock, reset)
 	begin
+		if reset = '1' then
+		
+		elsif clock = '1' and clock'event then --reset 0
+			
+			
+		end if;
 
 end process;
-	end behavior;
+end behavior;
