@@ -19,18 +19,18 @@ end entity;
 architecture behavior of ula is
 
 --simais ULA
-signal comp 	: std_logic;
+signal comp 	: std_logic_vector(7 downto 0);
 begin
 
 	comp <= ulaIn_0 - ulaIn_1;
 	
-	ulaComp <= '0' when comp = '0' else
-			<= '1';
+	ulaComp <= '0' when comp = "00000000" else
+			  	'1';
 	
-	ulaOut <= (ulaIn_0 + ulaIn_1) when ulaOp = "00" else
-			<= comp when ulaOp = "01" else
-			<= (ulaIn_0 * ulaIn_1) = "10" else
-			(others => '0');
+	ulaOut <= "00000000" & (ulaIn_0 + ulaIn_1) when ulaOp = "00" else
+			   "00000000" & comp when ulaOp = "01" else
+			  	(ulaIn_0 * ulaIn_1) when ulaOp = "10" else
+				(others => '0');
 	
 
 end behavior;

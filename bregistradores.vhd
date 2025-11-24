@@ -5,11 +5,11 @@ use ieee.std_logic_arith.all;
 
 entity bregistradores is 
 	port(
-		registrador 	:	in std_logic_vector (3 downto 0);
-		dado			:	in std_logic_vector (15 downto 0);
-		enable			:	in std_logic;
+		brReg 			:	in std_logic_vector (3 downto 0);
+		brData			:	in std_logic_vector (15 downto 0);
+		brEnable		:	in std_logic;
 		clock			:	in std_logic;
-		saida			:	out std_logic_vector (15 downto 0);
+		brOut			:	out std_logic_vector (15 downto 0)
 	
 );
 end entity;
@@ -18,21 +18,22 @@ architecture behavior of bregistradores is
 
 type br is array (integer range 0 to 15) of std_logic_vector(15 downto 0);
 signal br_o 	: br;
-signal endBr 	: std_logic;
+signal endBr 	: integer range 0 to 15;
 
 begin
 
-	endBr <= convert_integer(registador);
+	endBr <= conv_integer(brReg);
 	
-	saida <= br_o(endBr) when (enable = '0')
+	brOut <= br_o(endBr) when (brEnable = '0')
 		else 
 			(others => '0');
 
-process(clock)
-
-if enable = "1" then
-	 br_o(endBr) <= dado;
+process(clock, brEnable)
+begin
+if clock = '1' and clock'event then
+	if brEnable = '1' then
+		 br_o(endBr) <= brData;
+	end if;
 end if;
-
 end process;
 end behavior;
