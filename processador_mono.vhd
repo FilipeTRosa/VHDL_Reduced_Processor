@@ -163,11 +163,18 @@ begin
 	brRegDest 	<= regDest;
 	brData 		<= ulaOut;
 	
+	--Ligando cabos da Memoria
+	
+	
+	
 	--Ligando cabos da Ula
 	ulaOp <= "00" when opcode = "0000" or opcode = "1000" else
 			"01" when opcode = "0001" or opcode = "1001" else
 			"10" when opcode = "0010" or opcode = "1010" else
 			(others => "11");
+	ulaIn0 <= reg0; 
+    ulaIn1 <= reg1;
+    
 	
 	--valor
 	--valor <= reg0 + regDest + imm;
@@ -181,9 +188,9 @@ process(clock, reset)
 		
 		elsif clock = '1' and clock'event then --reset 0
 			--incremento do PC....
-			if (opcode = "0011") then
+			if (opcode = "0011") then --JMP
 				pc <= imm;
-			elsif (opcode = "0100") or (opcode = "0101") then
+			elsif ((opcode = "0100") and (ulaComp = '0')) or ((opcode = "0101") and (ulaComp = '1')) then -- (0100 and 0) = BEQ ...ou... (0101 and 1) = BNE
 				pc <= pc + imm;
 			else
 				pc <= pc + 1;
