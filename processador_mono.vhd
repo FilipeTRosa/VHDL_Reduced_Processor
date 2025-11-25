@@ -64,18 +64,24 @@ end component;
 
 -- BANCO DE REGISTRADORES --
 
-signal brReg 		: std_logic_vector (3 downto 0);
+signal brReg0 		: std_logic_vector (3 downto 0);
+signal brReg1 		: std_logic_vector (3 downto 0);
+brRegDest			: std_logic_vector (3 downto 0);
 signal brData		: std_logic_vector (15 downto 0);
 signal brEnable		: std_logic;
 signal brOut		: std_logic_vector (15 downto 0);
+signal brOut1		: std_logic_vector (15 downto 0);
 
 component bregistradores is 
 	port(
-		brReg 		:	in std_logic_vector (3 downto 0);
+		brReg0 		:	in std_logic_vector (3 downto 0);
+		brReg1 		:	in std_logic_vector (3 downto 0);
+		brRegDest	:	in std_logic_vector (3 downto 0);
 		brData		:	in std_logic_vector (15 downto 0);
 		brEnable	:	in std_logic;
 		clock		:	in std_logic;
-		brOut		:	out std_logic_vector (15 downto 0)
+		brOut0		:	out std_logic_vector (15 downto 0);
+		brOut1		:	out std_logic_vector (15 downto 0)
 		
 );
 end component;
@@ -110,11 +116,14 @@ begin
 	bregistradoresProcess : bregistradores
 	port map(
         -- Porta do BR => processador
-        brReg    => brReg,
-        brData   => brData,
-        brEnable => brEnable,
-        clock    => clock, 
-        brOut    => brOut        
+        brReg0    => brReg0,
+        brReg1    => brReg1,
+        brRegDest => brRegDest,
+        brData    => brData,
+        brEnable  => brEnable,
+        clock     => clock, 
+        brOut0    => brOut0;
+        brOut1    => brOut1         
     );
 
 	--separando a operação TENTANDO COM 20 bits	
@@ -131,17 +140,35 @@ begin
 	--	
 	regDest <= inst(3 downto 0) when (opcode = "0000" or opcode = "0001" or opcode = "0010")  -- ADD : SUB : MULT
 		else
-				inst(15 downto 12) when (opcode = "0110" or opcode = "0111" ) --LW e SW
+				inst(15 downto 12) when (opcode = "0110" or opcode = "1000" or opcode = "1001" or opcode = "1010") -- LW e ADDI : SUBI : MULTI
 		else
 			(others => '0');
-	-- 									JMP			//  		-- BEQ : BNE			//				 -- LDI : ADDI : SUBI : MULTI
-	imm <= inst(7 downto 0) when (opcode = "0011" or opcode = "0100" or opcode = "0101" or opcode = "1011" or opcode = "1000" or opcode = "1001" or opcode = "1010")
+	-- 									JMP			//  		-- BEQ : BNE			//				 -- LDI : ADDI : SUBI : MULTI								// 			--LW e SW
+	imm <= inst(7 downto 0) when (opcode = "0011" or opcode = "0100" or opcode = "0101" or opcode = "1011" or opcode = "1000" or opcode = "1001" or opcode = "1010" or opcode = "0110" or opcode = "0111")
 		else
 			(others => '0');
 	--
-	memDataEnd <= inst(7 downto 0) when (opcode = "0110" or opcode = "0111")   --LW e SW
-		else
-			(others => '0');
+	--memDataEnd <= inst(7 downto 0) when (opcode = "0110" or opcode = "0111")   --LW e SW
+	--	else
+	--		(others => '0');
+			
+	--ENABLE ESCRITA NO BR  		-- ADD : SUB : MULT							//		SW			//					ADDI : SUBI : MULTI
+	brEnable <= '1' when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0111" or opcode = "1000" or opcode = "1001" or opcode = "1010")
+		else	
+			'0';
+	
+	--Ligando cabos do BR
+	brReg0  	<= reg0;		
+	brReg1 	  	<= reg1;
+	brRegDest 	<= regDest;
+	brData 		<= ulaOut;
+	
+	--Ligando cabos da Ula
+	ulaOp <= "00" when opcode = "0000" or opcode = "1000" else
+			"01" when opcode = "0001" or opcode = "1001" else
+			"10" when opcode = "0010" or opcode = "1010" else
+			(others => "11");
+	
 	--valor
 	--valor <= reg0 + regDest + imm;
 	
@@ -154,7 +181,22 @@ process(clock, reset)
 		
 		elsif clock = '1' and clock'event then --reset 0
 			--incremento do PC....
+			if (opcode = "0011") then
+				pc <= imm;
+			elsif (opcode = "0100") or (opcode = "0101") then
+				pc <= pc + imm;
+			else
+				pc <= pc + 1;
+			end if;
+			-- 
+			
+			
+			
+			
 		end if;
 
 end process;
+
+-- memoria
+
 end behavior;

@@ -5,11 +5,14 @@ use ieee.std_logic_arith.all;
 
 entity bregistradores is 
 	port(
-		brReg 			:	in std_logic_vector (3 downto 0);
+		brReg0 			:	in std_logic_vector (3 downto 0);
+		brReg1 			:	in std_logic_vector (3 downto 0);
+		brRegDest		:	in std_logic_vector (3 downto 0);
 		brData			:	in std_logic_vector (15 downto 0);
 		brEnable		:	in std_logic;
 		clock			:	in std_logic;
-		brOut			:	out std_logic_vector (15 downto 0)
+		brOut0			:	out std_logic_vector (15 downto 0);
+		brOut1			:	out std_logic_vector (15 downto 0)
 	
 );
 end entity;
@@ -22,9 +25,14 @@ signal endBr 	: integer range 0 to 15;
 
 begin
 
-	endBr <= conv_integer(brReg);
+	endBr0	   <= conv_integer(brReg0);
+	endBr1	   <= conv_integer(brReg1);
+	endRegDest <= conv_integer(brRegDest);
 	
-	brOut <= br_o(endBr) when (brEnable = '0')
+	brOut0 <= br_o(endBr0) when (brEnable = '0')
+		else 
+			(others => '0');
+	brOut1 <= br_o(endBr1) when (brEnable = '0')
 		else 
 			(others => '0');
 
@@ -32,7 +40,7 @@ process(clock, brEnable)
 begin
 if clock = '1' and clock'event then
 	if brEnable = '1' then
-		 br_o(endBr) <= brData;
+		 br_o(endRegDest) <= brData;
 	end if;
 end if;
 end process;
