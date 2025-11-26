@@ -38,13 +38,13 @@ signal ulaOp  		: std_logic_vector(1 downto 0);
 signal ulaComp  	: std_logic;
 
 component ula is
-        port(
-            ulaOp   : in std_logic_vector(1 downto 0);
-            ulaIn_0 : in std_logic_vector(7 downto 0);
-            ulaIn_1 : in std_logic_vector(7 downto 0);
-            ulaOut  : out std_logic_vector(15 downto 0);
-            ulaComp : out std_logic
-        );  
+    port(
+        ulaOp   	: in std_logic_vector(1 downto 0);
+        ulaIn_0 	: in std_logic_vector(7 downto 0);
+        ulaIn_1 	: in std_logic_vector(7 downto 0);
+        ulaOut  	: out std_logic_vector(15 downto 0);
+        ulaComp 	: out std_logic
+    );  
 end component;
 
 --memoria de dados
@@ -66,7 +66,7 @@ end component;
 
 signal brReg0 		: std_logic_vector (3 downto 0);
 signal brReg1 		: std_logic_vector (3 downto 0);
-brRegDest			: std_logic_vector (3 downto 0);
+signal brRegDest	: std_logic_vector (3 downto 0);
 signal brData		: std_logic_vector (15 downto 0);
 signal brEnable		: std_logic;
 signal brOut		: std_logic_vector (15 downto 0);
