@@ -69,7 +69,7 @@ signal brReg1 		: std_logic_vector (3 downto 0);
 signal brRegDest	: std_logic_vector (3 downto 0);
 signal brData		: std_logic_vector (15 downto 0);
 signal brEnable		: std_logic;
-signal brOut		: std_logic_vector (15 downto 0);
+signal brOut0		: std_logic_vector (15 downto 0);
 signal brOut1		: std_logic_vector (15 downto 0);
 
 component bregistradores is 
@@ -129,8 +129,8 @@ begin
 	--separando a operação TENTANDO COM 20 bits	
 	opcode <= inst(19 downto 16);
 	--tentando com when
-														-- ADD : SUB : MULT				   //   		-- BEQ e BNE			// 			 -- LDI : ADDI : SUBI : MULTI		
-	reg0 <= inst(15 downto 12) when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0100" or opcode = "0101" or opcode = "1000" or opcode = "1001" or opcode = "1010" or opcode = "1011")
+														-- ADD : SUB : MULT				   //   		-- BEQ e BNE			// 			 -- LDI : ADDI : SUBI : MULTI										//     		LW : SW
+	reg0 <= inst(15 downto 12) when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0100" or opcode = "0101" or opcode = "1000" or opcode = "1001" or opcode = "1010" or opcode = "1011" or opcode = "0110" or opcode = "0111" )
 		else
 			(others => '0');
 	-- 												-- ADD : SUB : MULT					  //    		-- BEQ : BNE
@@ -163,8 +163,12 @@ begin
 	brRegDest 	<= regDest;
 	brData 		<= ulaOut;
 	
-	--Ligando cabos da Memoria
 	
+	--Ligando cabos da Memoria
+    memDataEnd  <= imm;
+    --memDataOut  => memDataOut,
+    --opcode   	=> opcode,
+    memDataIn   => brOut0;
 	
 	
 	--Ligando cabos da Ula
@@ -172,8 +176,8 @@ begin
 			"01" when opcode = "0001" or opcode = "1001" else
 			"10" when opcode = "0010" or opcode = "1010" else
 			(others => "11");
-	ulaIn0 <= reg0; 
-    ulaIn1 <= reg1;
+	ulaIn0 <= brOut0; 
+    ulaIn1 <= brOut1;
     
 	
 	--valor

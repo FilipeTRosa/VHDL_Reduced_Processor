@@ -9,7 +9,7 @@ entity memoria is
 		memDataOut	: out std_logic_vector (15 downto 0);
 		opcode		: in std_logic_vector (3 downto 0);
 		memDataIn 	: in std_logic_vector (15 downto 0);
-		memEnable	: in std_logic;
+		--memEnable	: in std_logic;
 		clock		: in std_logic
 	);
 end entity;
