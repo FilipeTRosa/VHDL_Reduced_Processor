@@ -12,7 +12,7 @@ entity processador_mono is
 end entity;
 architecture behavior of processador_mono is
 --sinais da instrução                        
-signal inst			: std_logic_vector(19 downto 0);
+signal inst			: std_logic_vector(19 downto 0); --saida memoria de instruções
 signal opcode		: std_logic_vector(3 downto 0);
 signal reg0			: std_logic_vector(3 downto 0);
 signal reg1			: std_logic_vector(3 downto 0);
@@ -184,6 +184,12 @@ begin
 	--valor <= reg0 + regDest + imm;
 	
 	
+	
+	--começando tudo
+	
+	inst  	<= memInst(conv_integer(PC));
+	
+	
 
 
 process(clock, reset)
@@ -208,6 +214,22 @@ process(clock, reset)
 
 end process;
 
--- memoria
+-- memoria instruções
+memInst(0) <= 20x"B4001";
+memInst(1) <= 20x"72001";
+memInst(2) <= 20x"73002";
+memInst(3) <= 20x"40307";
+memInst(4) <= 20x"22404";
+memInst(5) <= 20x"93001";
+memInst(6) <= 20x"30003";
+memInst(7) <= 20x"74003";
+memInst(8) <= (others => '0');
+memInst(9) <= (others => '0');
+memInst(10) <= (others => '0');
+memInst(11) <= (others => '0');
+memInst(12) <= (others => '0');
+memInst(13) <= (others => '0');
+
+
 
 end behavior;
