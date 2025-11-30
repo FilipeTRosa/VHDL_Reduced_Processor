@@ -1,0 +1,71 @@
+C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd {1 {vcom -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+Start time: 12:19:51 on Nov 30,2025
+vcom -reportprogress 300 -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity bregistradores
+-- Compiling architecture behavior of bregistradores
+End time: 12:19:51 on Nov 30,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd {1 {vcom -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+Start time: 12:19:51 on Nov 30,2025
+vcom -reportprogress 300 -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity processador_mono
+-- Compiling architecture behavior of processador_mono
+End time: 12:19:51 on Nov 30,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd {1 {vcom -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+Start time: 12:19:51 on Nov 30,2025
+vcom -reportprogress 300 -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ula
+-- Compiling architecture behavior of ula
+End time: 12:19:51 on Nov 30,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd {1 {vcom -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+Start time: 12:19:51 on Nov 30,2025
+vcom -reportprogress 300 -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity memoria
+-- Compiling architecture behavior of memoria
+End time: 12:19:51 on Nov 30,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd {1 {vcom -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+Start time: 12:19:51 on Nov 30,2025
+vcom -reportprogress 300 -work work -2008 -explicit C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd 
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity tb
+-- Compiling architecture behavior of tb
+End time: 12:19:51 on Nov 30,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}}

@@ -20,8 +20,10 @@ end entity;
 architecture behavior of bregistradores is
 
 type br is array (integer range 0 to 15) of std_logic_vector(15 downto 0);
-signal br_o 	: br;
-signal endBr 	: integer range 0 to 15;
+signal br_o 		: br;
+signal endBr0 		: integer range 0 to 15;
+signal endBr1 		: integer range 0 to 15;
+signal endRegDest 	: integer range 0 to 15;
 
 begin
 
@@ -29,18 +31,15 @@ begin
 	endBr1	   <= conv_integer(brReg1);
 	endRegDest <= conv_integer(brRegDest);
 	
-	brOut0 <= br_o(endBr0) when (brEnable = '0')
-		else 
-			(others => '0');
-	brOut1 <= br_o(endBr1) when (brEnable = '0')
-		else 
-			(others => '0');
-
-process(clock, brEnable)
+	brOut0 <= br_o(endBr0);
+	brOut1 <= br_o(endBr1);
+	
+process(clock)
 begin
 if clock = '1' and clock'event then
+		br_o(0) <= "0000000000000000";
 	if brEnable = '1' then
-		 br_o(endRegDest) <= brData;
+		br_o(endRegDest) <= brData;
 	end if;
 end if;
 end process;

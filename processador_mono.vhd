@@ -27,21 +27,21 @@ type mem is array (integer range 0 to 255) of std_logic_vector(19 downto 0);
 signal memInst		: mem;
 
 --sinais de controle
-signal pc 			: integer range 0 to 255;
-signal enableReg	: std_logic;
+signal pc 			: std_logic_vector(7 downto 0);
+--signal enableReg	: std_logic;
 
 --sinais ULA
 signal ulaOut 		: std_logic_vector(15 downto 0);
-signal ulaIn0 		: std_logic_vector(7 downto 0);
-signal ulaIn1 		: std_logic_vector(7 downto 0);
+signal ulaIn0 		: std_logic_vector(15 downto 0);
+signal ulaIn1 		: std_logic_vector(15 downto 0);
 signal ulaOp  		: std_logic_vector(1 downto 0);
 signal ulaComp  	: std_logic;
 
 component ula is
     port(
         ulaOp   	: in std_logic_vector(1 downto 0);
-        ulaIn_0 	: in std_logic_vector(7 downto 0);
-        ulaIn_1 	: in std_logic_vector(7 downto 0);
+        ulaIn_0 	: in std_logic_vector(15 downto 0);
+        ulaIn_1 	: in std_logic_vector(15 downto 0);
         ulaOut  	: out std_logic_vector(15 downto 0);
         ulaComp 	: out std_logic
     );  
@@ -122,15 +122,15 @@ begin
         brData    => brData,
         brEnable  => brEnable,
         clock     => clock, 
-        brOut0    => brOut0;
+        brOut0    => brOut0,
         brOut1    => brOut1         
     );
 
 	--separando a operação TENTANDO COM 20 bits	
 	opcode <= inst(19 downto 16);
 	--tentando com when
-														-- ADD : SUB : MULT				   //   		-- BEQ e BNE			// 			 -- LDI : ADDI : SUBI : MULTI										//     		LW : SW
-	reg0 <= inst(15 downto 12) when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0100" or opcode = "0101" or opcode = "1000" or opcode = "1001" or opcode = "1010" or opcode = "1011" or opcode = "0110" or opcode = "0111" )
+														-- ADD : SUB : MULT				   //   		-- BEQ e BNE			// 			 ADDI : SUBI : MULTI										//     		LW : SW
+	reg0 <= inst(15 downto 12) when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0100" or opcode = "0101"  or opcode = "1001" or opcode = "1010" or opcode = "1000" or opcode = "0110" or opcode = "0111" )
 		else
 			(others => '0');
 	-- 												-- ADD : SUB : MULT					  //    		-- BEQ : BNE
@@ -138,9 +138,9 @@ begin
 		else
 			(others => '0');
 	--	
-	regDest <= inst(3 downto 0) when (opcode = "0000" or opcode = "0001" or opcode = "0010")  -- ADD : SUB : MULT
+	regDest <= inst(3 downto 0) when (opcode = "0000" or opcode = "0001" or opcode = "0010")  -- ADD : SUB : MULT  
 		else
-				inst(15 downto 12) when (opcode = "0110" or opcode = "1000" or opcode = "1001" or opcode = "1010") -- LW e ADDI : SUBI : MULTI
+			inst(11 downto 8) when (opcode = "0110" or opcode = "1000" or opcode = "1001" or opcode = "1010"  or opcode = "1011") -- LW e ADDI : SUBI : MULTI -- LDI 
 		else
 			(others => '0');
 	-- 									JMP			//  		-- BEQ : BNE			//				 -- LDI : ADDI : SUBI : MULTI								// 			--LW e SW
@@ -152,32 +152,33 @@ begin
 	--	else
 	--		(others => '0');
 			
-	--ENABLE ESCRITA NO BR  		-- ADD : SUB : MULT							//		SW			//					ADDI : SUBI : MULTI
-	brEnable <= '1' when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0111" or opcode = "1000" or opcode = "1001" or opcode = "1010")
+	--ENABLE ESCRITA NO BR  		-- ADD : SUB : MULT							//		SW			//					ADDI : SUBI : MULTI					// LDI
+	brEnable <= '1' when (opcode = "0000" or opcode = "0001" or opcode = "0010" or opcode = "0111" or opcode = "1000" or opcode = "1001" or opcode = "1010" or opcode = "1011")
 		else	
 			'0';
-	
+
 	--Ligando cabos do BR
 	brReg0  	<= reg0;		
 	brReg1 	  	<= reg1;
 	brRegDest 	<= regDest;
-	brData 		<= ulaOut;
-	
+	brData 		<= "00000000" & imm when(opcode = "1011") else --LDI
+					ulaOut;
 	
 	--Ligando cabos da Memoria
     memDataEnd  <= imm;
     --memDataOut  => memDataOut,
     --opcode   	=> opcode,
-    memDataIn   => brOut0;
+    memDataIn   <= brOut0;
 	
 	
 	--Ligando cabos da Ula
 	ulaOp <= "00" when opcode = "0000" or opcode = "1000" else
 			"01" when opcode = "0001" or opcode = "1001" else
 			"10" when opcode = "0010" or opcode = "1010" else
-			(others => "11");
+			"11";
 	ulaIn0 <= brOut0; 
-    ulaIn1 <= brOut1;
+    ulaIn1 <= "00000000" & imm when (opcode = "1000" or opcode = "1001" or opcode = "1010") else -- ADDI : SUBI : MULTI	
+    		brOut1;
     
 	
 	--valor
@@ -195,7 +196,7 @@ begin
 process(clock, reset)
 	begin
 		if reset = '1' then
-		
+			PC <= (others => '0');
 		elsif clock = '1' and clock'event then --reset 0
 			--incremento do PC....
 			if (opcode = "0011") then --JMP
@@ -206,25 +207,24 @@ process(clock, reset)
 				pc <= pc + 1;
 			end if;
 			-- 
-			
-			
-			
-			
+					
 		end if;
 
 end process;
 
 -- memoria instruções
-memInst(0) <= 20x"B4001";
-memInst(1) <= 20x"72001";
-memInst(2) <= 20x"73002";
-memInst(3) <= 20x"40307";
-memInst(4) <= 20x"22404";
-memInst(5) <= 20x"93001";
-memInst(6) <= 20x"30003";
-memInst(7) <= 20x"74003";
-memInst(8) <= (others => '0');
-memInst(9) <= (others => '0');
+memInst(0) <= 20x"B0401";
+memInst(1) <= 20x"B0203";
+memInst(2) <= 20x"B0302";
+memInst(3) <= 20x"40306";
+memInst(4) <= 20x"22406";
+memInst(5) <= 20x"06004";
+memInst(6) <= 20x"93701";
+memInst(7) <= 20x"07003";
+memInst(8) <= 20x"30003";
+memInst(9) <= 20x"74003";
+memInst(15) <= (others => '0');
+memInst(14) <= (others => '0');
 memInst(10) <= (others => '0');
 memInst(11) <= (others => '0');
 memInst(12) <= (others => '0');

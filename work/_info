@@ -1,0 +1,225 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/bianc/Downloads/prova1PD
+Ebregistradores
+Z0 w1764513750
+Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor
+Z6 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd
+Z7 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd
+l0
+L6
+V[gf1iIOIGO_;e;SW65P593
+!s100 7m3^lC^f7]`I`lbiBRef21
+Z8 OV;C;10.5c;63
+33
+Z9 !s110 1764515991
+!i10b 1
+Z10 !s108 1764515991.000000
+Z11 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd|
+Z12 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd|
+!i113 1
+Z13 o-work work -2008 -explicit
+Z14 tExplicit 1 CvgOpt 0
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 14 bregistradores 0 22 [gf1iIOIGO_;e;SW65P593
+l28
+L20
+VQ]@G4nlGRNBdcM`IH3<BE2
+!s100 3DAjNGjU109eb]BI9@ZDF1
+R8
+33
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Ememoria
+Z15 w1764198355
+R1
+R2
+R3
+R4
+R5
+Z16 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd
+Z17 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd
+l0
+L6
+V`e9NXPYM4zk1Laf0gz2>=3
+!s100 b@fmO>]FiVM49T3k;d[EU0
+R8
+33
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd|
+Z19 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd|
+!i113 1
+R13
+R14
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 7 memoria 0 22 `e9NXPYM4zk1Laf0gz2>=3
+l30
+L16
+VXL@SDbfNP0DeL;EZSR;7^3
+!s100 UmPL2bZOV[G3jJDhk67911
+R8
+33
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R13
+R14
+Eprocessador_mono
+Z20 w1764515974
+R1
+R2
+R3
+R4
+R5
+Z21 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
+Z22 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
+l0
+L6
+V@`H^Ukz5eg90dP9^mLolR2
+!s100 WD5>V2b[do32F7GE^fK2b0
+R8
+33
+R9
+!i10b 1
+R10
+Z23 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd|
+Z24 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd|
+!i113 1
+R13
+R14
+Abehavior
+R1
+R2
+R3
+R4
+Z25 DEx4 work 16 processador_mono 0 22 @`H^Ukz5eg90dP9^mLolR2
+l91
+L13
+Vg1Cc8TJ5i_z]KhEY0A=g^0
+!s100 h05naQ259YnO^i5b_2N?M1
+R8
+33
+R9
+!i10b 1
+R10
+R23
+R24
+!i113 1
+R13
+R14
+Etb
+Z26 w1764462734
+R1
+R2
+R3
+R4
+R5
+Z27 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
+Z28 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
+l0
+L6
+VG0A8ZBCYnQ]Nl@f_Kfo8L3
+!s100 fL5i@EBUm]lHBfoH<5SY>3
+R8
+33
+R9
+!i10b 1
+R10
+Z29 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd|
+Z30 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd|
+!i113 1
+R13
+R14
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 2 tb 0 22 G0A8ZBCYnQ]Nl@f_Kfo8L3
+l25
+L9
+VPa^CD`?4=mRNkXkE0mRX41
+!s100 AX3eEEEdd=HoGU=UnnAPQ0
+R8
+33
+R9
+!i10b 1
+R10
+R29
+R30
+!i113 1
+R13
+R14
+Eula
+Z31 w1764512165
+R1
+R2
+R3
+R4
+R5
+Z32 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
+Z33 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
+l0
+L7
+VY?OJAdE`E`]oiNI_@ofZ?2
+!s100 Ia_dVVjFTgOOEFPS9AiiO3
+R8
+33
+R9
+!i10b 1
+R10
+Z34 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd|
+Z35 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd|
+!i113 1
+R13
+R14
+Abehavior
+R1
+R2
+R3
+R4
+DEx4 work 3 ula 0 22 Y?OJAdE`E`]oiNI_@ofZ?2
+l24
+L19
+VkmfmSn1G3;fO<NWjVNPf:1
+!s100 jIGabjL5blQVLHA@n?1MY1
+R8
+33
+R9
+!i10b 1
+R10
+R34
+R35
+!i113 1
+R13
+R14
