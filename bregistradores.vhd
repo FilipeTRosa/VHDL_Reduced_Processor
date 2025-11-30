@@ -30,7 +30,6 @@ begin
 	endBr0	   <= conv_integer(brReg0);
 	endBr1	   <= conv_integer(brReg1);
 	endRegDest <= conv_integer(brRegDest);
-	
 	brOut0 <= br_o(endBr0);
 	brOut1 <= br_o(endBr1);
 	

@@ -18,7 +18,7 @@ component processador_mono is
 end component;
 
 -- sinais para serem ligados no port map com o topo
-signal clock_sg	: std_logic:= '0';
+signal clock_sg		: std_logic:= '0';
 signal reset_sg		: std_logic:= '1';
 --signal Z_sg			: std_logic_vector(3 downto 0);
 
