@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/bianc/Downloads/prova1PD
 Ebregistradores
-Z0 w1764513750
+Z0 w1764522137
 Z1 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
 Z2 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
@@ -23,9 +23,9 @@ V[gf1iIOIGO_;e;SW65P593
 !s100 7m3^lC^f7]`I`lbiBRef21
 Z8 OV;C;10.5c;63
 33
-Z9 !s110 1764521437
+Z9 !s110 1765490783
 !i10b 1
-Z10 !s108 1764521437.000000
+Z10 !s108 1765490783.000000
 Z11 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd|
 Z12 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/bregistradores.vhd|
 !i113 1
@@ -39,8 +39,8 @@ R4
 DEx4 work 14 bregistradores 0 22 [gf1iIOIGO_;e;SW65P593
 l28
 L20
-VQ]@G4nlGRNBdcM`IH3<BE2
-!s100 3DAjNGjU109eb]BI9@ZDF1
+V>dU6:XMUmV;[TVMCAQ:RQ0
+!s100 [85fJS8GDW>k?Q;U:XJ_02
 R8
 33
 R9
@@ -52,7 +52,7 @@ R12
 R13
 R14
 Ememoria
-Z15 w1764198355
+Z15 w1764522115
 R1
 R2
 R3
@@ -62,15 +62,15 @@ Z16 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vh
 Z17 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd
 l0
 L6
-V`e9NXPYM4zk1Laf0gz2>=3
-!s100 b@fmO>]FiVM49T3k;d[EU0
+V?PAfEE<Aoj1cH2a@6Um_?3
+!s100 RekoS=7c]0bmgIb]iX:zj0
 R8
 33
-R9
+Z18 !s110 1765490782
 !i10b 1
-R10
-Z18 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd|
-Z19 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd|
+Z19 !s108 1765490782.000000
+Z20 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd|
+Z21 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/memoria.vhd|
 !i113 1
 R13
 R14
@@ -79,41 +79,41 @@ R1
 R2
 R3
 R4
-DEx4 work 7 memoria 0 22 `e9NXPYM4zk1Laf0gz2>=3
-l30
-L16
-VXL@SDbfNP0DeL;EZSR;7^3
-!s100 UmPL2bZOV[G3jJDhk67911
+DEx4 work 7 memoria 0 22 ?PAfEE<Aoj1cH2a@6Um_?3
+l22
+L15
+Va<n^[Qb@`GMe<bg2TnJR`1
+!s100 ZQO`O<Kza?9]4EQj7_MF:3
 R8
 33
-R9
-!i10b 1
-R10
 R18
+!i10b 1
 R19
+R20
+R21
 !i113 1
 R13
 R14
 Eprocessador_mono
-Z20 w1764521430
+Z22 w1764522069
 R1
 R2
 R3
 R4
 R5
-Z21 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
-Z22 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
+Z23 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
+Z24 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd
 l0
 L6
 V@`H^Ukz5eg90dP9^mLolR2
 !s100 WD5>V2b[do32F7GE^fK2b0
 R8
 33
-Z23 !s110 1764521438
+R9
 !i10b 1
 R10
-Z24 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd|
-Z25 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd|
+Z25 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd|
+Z26 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/processador_mono.vhd|
 !i113 1
 R13
 R14
@@ -122,41 +122,41 @@ R1
 R2
 R3
 R4
-Z26 DEx4 work 16 processador_mono 0 22 @`H^Ukz5eg90dP9^mLolR2
-l91
+Z27 DEx4 work 16 processador_mono 0 22 @`H^Ukz5eg90dP9^mLolR2
+l88
 L13
-VX2hh^?bLO45?[KEVfaKzR0
-!s100 _8>_14511VgG`D3fUm>fh2
+VS^b<ZKa5@3nQZV5zdaXd83
+!s100 Yo]hSSUUSghjTcU_lB3Ro0
 R8
 33
-R23
+R9
 !i10b 1
 R10
-R24
 R25
+R26
 !i113 1
 R13
 R14
 Etb
-Z27 w1764462734
+Z28 w1764521553
 R1
 R2
 R3
 R4
 R5
-Z28 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
-Z29 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
+Z29 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
+Z30 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd
 l0
 L6
 VG0A8ZBCYnQ]Nl@f_Kfo8L3
 !s100 fL5i@EBUm]lHBfoH<5SY>3
 R8
 33
-R9
+R18
 !i10b 1
-R10
-Z30 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd|
-Z31 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd|
+R19
+Z31 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd|
+Z32 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/tb.vhd|
 !i113 1
 R13
 R14
@@ -168,27 +168,27 @@ R4
 DEx4 work 2 tb 0 22 G0A8ZBCYnQ]Nl@f_Kfo8L3
 l25
 L9
-VPa^CD`?4=mRNkXkE0mRX41
-!s100 AX3eEEEdd=HoGU=UnnAPQ0
+VRkK58HmPcgkQFjIW2e1RC0
+!s100 hB4NoGL^OEVHzE@Dm2[^n0
 R8
 33
-R9
+R18
 !i10b 1
-R10
-R30
+R19
 R31
+R32
 !i113 1
 R13
 R14
 Eula
-Z32 w1764512165
+Z33 w1764512165
 R1
 R2
 R3
 R4
 R5
-Z33 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
-Z34 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
+Z34 8C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
+Z35 FC:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd
 l0
 L7
 VY?OJAdE`E`]oiNI_@ofZ?2
@@ -197,9 +197,9 @@ R8
 33
 R9
 !i10b 1
-R10
-Z35 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd|
-Z36 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd|
+R19
+Z36 !s90 -reportprogress|300|-work|work|-2008|-explicit|C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd|
+Z37 !s107 C:/Users/bianc/OneDrive/Documentos/GitHub/VHDL_Reduced_Processor/ula.vhd|
 !i113 1
 R13
 R14
@@ -217,9 +217,9 @@ R8
 33
 R9
 !i10b 1
-R10
-R35
+R19
 R36
+R37
 !i113 1
 R13
 R14
